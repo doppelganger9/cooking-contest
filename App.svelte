@@ -2,9 +2,22 @@
   import Username from "./Username.svelte";
   import Footer from './Footer.svelte';
   import Evaluations from './Evaluations.svelte';
-  import LocalStorage from './LocalStorage.svelte';
+  import ContestInfos from './ContestInfos.svelte';
+
   import { username } from './stores/username.js';
-  import { evaluating, evaluations } from './stores/evaluations.js';
+  import { evaluating, evaluations, contest } from './stores/evaluations.js';
+
+  import { loadContestFromFirebase } from './firebase.js';
+
+  // load data from Firestore
+  const contestPromise = loadContestFromFirebase();
+  // init store with string "loading" value
+  $contest = 'loading...';
+  // when data is loaded, the store will be updated.
+  contestPromise.then(contestData => {
+    $contest = contestData;
+  });
+
 </script>
 
 <style>
@@ -35,10 +48,8 @@
 </style>
 
 <main>
-  <LocalStorage store={evaluations} key={"cooking-contest-evaluations"} />
-  <LocalStorage store={username} key={"cooking-contest-username"} />
-  <LocalStorage store={evaluating} key={"cooking-contest-evaluating"} />
 	<h1>C<small>🍩🍪</small>king C<small>🎂</small>ntest!</h1>
+  <ContestInfos {...$contest} />
   <section>
     <Username />
   </section>

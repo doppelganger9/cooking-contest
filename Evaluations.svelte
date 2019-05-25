@@ -22,13 +22,13 @@
   {:else}
     <section>
     <h2>Mon évaluation</h2>
-    {#each $evaluations as evaluation (evaluation.id)}
+    {#each $evaluations as evaluation (evaluation.meal['meal-id'])}
       <EvaluationPreview
-        title={evaluation.title}
-        id={evaluation.id}
-        photoURL={evaluation.photoURL}
-        photoAlt={evaluation.photoAlt}
-        description={evaluation.description}
+        title={evaluation.meal.title}
+        id={evaluation.meal['meal-id']}
+        photoURL={evaluation.meal.photoURL}
+        photoAlt={evaluation.meal.photoAlt}
+        description={evaluation.meal.description}
         rating={evaluation.rating}
       />
     {/each}

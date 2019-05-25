@@ -4,7 +4,12 @@
 import svelte from "rollup-plugin-svelte";
 import resolve from "rollup-plugin-node-resolve";
 import commonjs from "rollup-plugin-commonjs";
+import replace from "rollup-plugin-replace";
 import { terser } from "rollup-plugin-terser";
+
+// this will put vars from a `.env` file into `process.env`
+import dotenv from "dotenv";
+dotenv.config();
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -17,6 +22,16 @@ export default {
     file: "public/bundle.js"
   },
   plugins: [
+    replace({
+      include: 'firebase.js',
+      delimiters: ['<@', '@>'],
+      values: {
+        FIREBASE_PROJECT_ID: process.env.FIREBASE_PROJECT_ID,
+        FIREBASE_API_KEY: process.env.FIREBASE_API_KEY,
+        FIREBASE_MESSAGING_SENDER_ID: process.env.FIREBASE_MESSAGING_SENDER_ID,
+        FIREBASE_APP_ID: process.env.FIREBASE_APP_ID,
+      },
+    }),
     svelte({
       // enable run-time checks when not in production
       dev: !production,

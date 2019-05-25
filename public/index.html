@@ -4,10 +4,22 @@
 <head>
   <meta charset='utf-8'>
   <meta name='viewport' content='width=device-width'>
+  <meta name='theme-color' content='#ff3e00'>
+  <link rel='manifest' href='/manifest.webmanifest'>
 
   <title>Cooking Contest</title>
 
   <link rel='stylesheet' href='bundle.css'>
+
+  <script>
+    // Check that service workers are registered
+    if ('serviceWorker' in navigator) {
+      // Use the window load event to keep the page load performant
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js');
+      });
+    }
+  </script>
 </head>
 
 <body>

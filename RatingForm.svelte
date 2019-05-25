@@ -1,8 +1,8 @@
 <script>
-  import { evaluating, evaluations, criterias } from './stores/evaluations';
+  import { evaluating, evaluations, contest } from './stores/evaluations';
   const DEFAULT_RATING = 3;
-  $: currentEvaluationIndex = $evaluations.findIndex(item => item.id === $evaluating);
-  $: currentEvaluation = $evaluations.find(item => item.id === $evaluating);
+  $: currentEvaluationIndex = $evaluations.findIndex(item => item.meal['meal-id'] === $evaluating);
+  $: currentEvaluation = $evaluations.find(item => item.meal['meal-id'] === $evaluating);
 
   function doneEvaluating() {
     evaluations.update( list => {
@@ -69,11 +69,11 @@
 </style>
 
 <section>
-  <h2><em>Mon évaluation pour</em> {currentEvaluation.id}</h2>
-  <h3>{currentEvaluation.title}</h3>
-  <img src={currentEvaluation.photoURL} alt={currentEvaluation.photoAlt}/>
+  <h2><em>Mon évaluation pour</em> {currentEvaluation.meal['meal-id']}</h2>
+  <h3>{currentEvaluation.meal.title}</h3>
+  <img src={currentEvaluation.meal.photoURL} alt={currentEvaluation.meal.photoAlt}/>
   <br/>
-    {#each $criterias as criterion, indexCriterion}
+    {#each $contest.criterias as criterion, indexCriterion}
     <label for="criteria{indexCriterion}">{criterion}</label><input name="criteria{indexCriterion}" type="number" min="1" max="5" bind:value={$evaluations[currentEvaluationIndex].ratings[indexCriterion]} />
     <br/>
     {/each}

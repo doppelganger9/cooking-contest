@@ -1,10 +1,8 @@
 <script>
-  import Login from "./Login.svelte";
+  import FirebaseLogin from "./FirebaseLogin.svelte";
   import Disconnect from "./Disconnect.svelte";
 
   import { username } from "./stores/username";
-
-  //let cookie = document.cookie["cookingcontest_username"];
 </script>
 
 <style>
@@ -19,5 +17,5 @@
   <Disconnect />
 {:else}
   <h2>Vous n'êtes pas encore inscrit</h2>
-  <Login />
+  <FirebaseLogin />
 {/if}

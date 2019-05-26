@@ -4,10 +4,10 @@
   import Evaluations from './Evaluations.svelte';
   import ContestInfos from './ContestInfos.svelte';
 
-  import { username } from './stores/username.js';
-  import { evaluating, evaluations, contest } from './stores/evaluations.js';
+  import { username } from '../stores/username.js';
+  import { evaluating, evaluations, contest } from '../stores/evaluations.js';
 
-  import { loadContestFromFirebase } from './firebase.js';
+	import { loadContestFromFirebase } from '../backend/firebase/firestore/contests.js';
 
   // load data from Firestore
   const contestPromise = loadContestFromFirebase();

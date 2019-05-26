@@ -1,6 +1,6 @@
 <script>
-	import { username } from "./stores/username";
-	import { evaluations, evaluating } from "./stores/evaluations";
+	import { username } from "../stores/username";
+	import { evaluations, evaluating } from "../stores/evaluations";
 
   function disconnect() {
     console.log("disconnected");

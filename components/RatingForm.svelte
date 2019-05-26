@@ -1,5 +1,6 @@
 <script>
-  import { evaluating, evaluations, contest } from './stores/evaluations';
+  import { evaluating, evaluations, contest } from '../stores/evaluations';
+
   const DEFAULT_RATING = 3;
   $: currentEvaluationIndex = $evaluations.findIndex(item => item.meal['meal-id'] === $evaluating);
   $: currentEvaluation = $evaluations.find(item => item.meal['meal-id'] === $evaluating);

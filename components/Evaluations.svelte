@@ -1,7 +1,8 @@
 <script>
-  import { evaluations, evaluating } from './stores/evaluations';
   import EvaluationPreview from './EvaluationPreview.svelte';
   import RatingForm from './RatingForm.svelte';
+
+import { evaluations, evaluating } from '../stores/evaluations';
 </script>
 
 <style>

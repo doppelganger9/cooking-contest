@@ -1,6 +1,7 @@
 <script>
+  import { evaluating } from '../stores/evaluations.js';
+
   export let title, description, id, photoAlt, photoURL, rating; //props
-  import { evaluating } from './stores/evaluations.js';
 
   function clickEvaluation(id) {
     return function(event) {

@@ -2,8 +2,8 @@
   /**
    * This component encapsulate logic to sync state to & from LocalStorage.
    */
-  import { username } from './stores/evaluations.js';
-  import { getState, saveState } from './stores/backend/localStorage.js';
+  import { username } from '../stores/evaluations.js';
+  import { getState, saveState } from '../backend/localStorage.js';
 
   // initializes state from localStorage
   $username = getCookie();

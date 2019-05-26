@@ -1,10 +1,9 @@
 <script>
-  import { auth } from './firebase';
-  import { authState } from 'rxfire/auth';
-
-  import { username, user } from "./stores/username";
-  import { evaluations, initializeEvaluations, contest } from './stores/evaluations';
-  import { loadFirebaseEvaluations } from './firebase';
+	import { authState } from 'rxfire/auth';
+	import { auth } from '../backend/firebase/core.js';
+	import { loadFirebaseEvaluations } from '../backend/firebase/firestore/evaluations.js';
+  import { username, user } from "../stores/username";
+  import { evaluations, initializeEvaluations, contest } from '../stores/evaluations';
 
 	let typedUsername = "";
 	let error = "";

@@ -23,7 +23,7 @@ export default {
   },
   plugins: [
     replace({
-      include: 'firebase.js',
+      include: './backend/firebase/firebase-config.js',
       delimiters: ['<@', '@>'],
       values: {
         FIREBASE_PROJECT_ID: process.env.FIREBASE_PROJECT_ID,

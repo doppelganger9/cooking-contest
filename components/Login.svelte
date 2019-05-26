@@ -1,6 +1,6 @@
 <script>
-	import { username } from "./stores/username";
-	import { initializeEvaluations } from './stores/evaluations.js';
+	import { username } from "../stores/username";
+	import { initializeEvaluations } from '../stores/evaluations.js';
 
   function connect() {
 		if (typedUsername) {

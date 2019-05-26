@@ -2,7 +2,7 @@
   import FirebaseLogin from "./FirebaseLogin.svelte";
   import Disconnect from "./Disconnect.svelte";
 
-  import { username } from "./stores/username";
+  import { username } from "../stores/username";
 </script>
 
 <style>

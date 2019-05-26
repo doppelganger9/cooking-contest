@@ -22,7 +22,7 @@ import { evaluations, evaluating } from '../stores/evaluations';
     <RatingForm id={$evaluating} />
   {:else}
     <section>
-    <h2>Mon évaluation</h2>
+    <h2>{$evaluations.length > 1 ? 'Mes évaluations':'Mon évaluation'}</h2>
     {#each $evaluations as evaluation (evaluation.meal['meal-id'])}
       <EvaluationPreview
         title={evaluation.meal.title}

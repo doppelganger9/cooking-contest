@@ -3,7 +3,7 @@ import { db } from '../core';
 export async function loadContestFromFirebase() {
   return new Promise((resolve, reject) => {
     const contestsRef = db.collection('contests');
-    contestsRef/*TODO: only current one where('Auteur', '==', username)*/.get()
+    contestsRef/*TODO: only current one where('author', '==', username)*/.get()
       .then(snapshot => {
         if (snapshot.empty) {
           console.log('No contests found in Firebase Cloud Firestore.');

@@ -1,5 +1,5 @@
 <script>
-  export let title, when;
+  export let title = null, when = null;
 </script>
 
 <section>

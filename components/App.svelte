@@ -18,6 +18,8 @@
     $contest = contestData;
   });
 
+  $: showMealDetails = $username === null;
+
 </script>
 
 <style>
@@ -49,10 +51,17 @@
 
 <main>
 	<h1>C<small>🍩🍪</small>king C<small>🎂</small>ntest!</h1>
-  <ContestInfos {...$contest} />
-  <section>
-    <Username />
-  </section>
-  <Evaluations />
+  <ContestInfos {...$contest} showMealDetails={showMealDetails} />
+  {#await contestPromise}
+    <p>attendez un peu, ça charge...⏳</p>
+  {:then theContest}
+    <section>
+      <Username />
+    </section>
+    <Evaluations />
+  {:catch err}
+    <p>Oups 🤭 nous n'arrivons pas à charger les données</p>
+    <pre>{err}</pre>
+  {/await}
   <Footer />
 </main>

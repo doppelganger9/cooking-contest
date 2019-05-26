@@ -1,6 +1,9 @@
 <script>
   import { evaluating, evaluations, contest } from '../stores/evaluations';
 
+  import { saveEvaluationInFirebase } from '../backend/firebase/firestore/evaluations.js';
+  import { username } from '../stores/username.js';
+
   const DEFAULT_RATING = 3;
   $: currentEvaluationIndex = $evaluations.findIndex(item => item.meal['meal-id'] === $evaluating);
   $: currentEvaluation = $evaluations.find(item => item.meal['meal-id'] === $evaluating);
@@ -8,6 +11,11 @@
   function doneEvaluating() {
     evaluations.update( list => {
       list[currentEvaluationIndex].rating = +(list[currentEvaluationIndex].ratings.reduce((acc, it) => acc+(+(it/5).toFixed(2)), 0).toFixed(2));
+      saveEvaluationInFirebase($username, list[currentEvaluationIndex]).then(() => {
+        // ok
+      }).catch(err => {
+        // error
+      });
       return list;
     });
     $evaluating = null;//same as evaluating.set(null);
@@ -15,7 +23,6 @@
 </script>
 
 <style>
-  
   label { width: 10em; display: inline-block; text-align: left; padding: 1em; font-size: 1em; line-height: 2em; font-weight: bolder;
     color: darkgreen;
     border-bottom: .25em solid green;

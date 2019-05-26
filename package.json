@@ -6,6 +6,7 @@
     "type": "git",
     "url": "git://github.com/doppelganger9/cooking-contest.git"
   },
+  "license": "MIT",
   "keywords": [
     "svelte",
     "sveltejs",

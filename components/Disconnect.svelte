@@ -2,6 +2,8 @@
 	import { username } from "../stores/username";
 	import { evaluations, evaluating } from "../stores/evaluations";
 
+	export let button = true; // render as button or link.
+
   function disconnect() {
     console.log("disconnected");
 		$username = null;
@@ -29,6 +31,18 @@
 	  padding: 8px 12px;
 	  border-radius: 2px;
 	}
+	a {
+		text-decoration: underline;
+	}
+	a:hover {
+		color: blueviolet;
+		font-weight: bolder;
+		cursor: pointer;
+	}
 </style>
 
-<button on:click={disconnect}>Me déconnecter 👋</button>
+{#if button}
+<button on:click={disconnect}><i class="fas fa-sign-out-alt"></i> Me déconnecter 👋</button>
+{:else}
+<a on:click={disconnect}><i class="fas fa-sign-out-alt"></i> Me déconnecter 👋</a>
+{/if}

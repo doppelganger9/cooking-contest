@@ -12,18 +12,24 @@
 </script>
 
 <style>
-  img {
+  article {
+    display: flex;
+  }
+  article div {
     --image-width: 8em;
     width: var(--image-width);
-    max-height: var(--image-width);
+    height: var(--image-width);
+  }
+  article div img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
     text-align: left;
     margin: .2em;
     float: left;
     flex-basis: var(--image-width);
   }
-  article {
-    display: flex;
-  }
+
   h3 {
     text-align: left;
     padding: 0 1em 0;
@@ -45,7 +51,7 @@
 </style>
 
 <article on:click|stopPropagation={clickEvaluation(id)}>
-  <img src={photoURL} alt={photoAlt}>
+  <div><img src={photoURL} alt={photoAlt}></div>
   <h3>{id} - {title}</h3>
   {#if description != null}
     <p>{description}</p>

@@ -4,6 +4,7 @@
   import Footer from './Footer.svelte';
   import Evaluations from './Evaluations.svelte';
   import ContestInfos from './ContestInfos.svelte';
+  import Loader from './Loader.svelte';
 
   import { username } from '../stores/username.js';
   import { i18n } from '../stores/i18n.js';
@@ -42,7 +43,7 @@
     <ContestInfos {...$contest} showMealDetails={showMealDetails} />
   {/if}
   {#await contestPromise}
-    <p>attendez un peu, ça charge...⏳</p>
+    <Loader />
   {:then theContest}
     {#if !$evaluating}
     <Username />

@@ -59,8 +59,12 @@ const colors = [
 
 <style>
 section {
-  background-color: white;
-  margin: 0;
+  border: .1em solid #ff3e00;
+  border-radius: .5em;
+  padding: .5em;
+  width: 80%;
+  background-image: linear-gradient(rgba(255,255,255,.8), rgba(255,255,255,0.4));
+  margin: 0 auto;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 

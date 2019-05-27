@@ -7,12 +7,12 @@
 
 <style>
   section {
-    border: 1px solid #ff3e00;
+    border: .1em solid #ff3e00;
     max-width: 80%;
     margin: 5vh auto;
     border-radius: .5em;
     padding: 1em;
-    color: #555;
+    background-image: linear-gradient(rgba(255,255,255,.8), rgba(255,255,255,0.4));
   }
 </style>
 

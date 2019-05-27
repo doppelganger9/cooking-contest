@@ -32,7 +32,7 @@
   input { display: inline-block; text-align: center; padding: .5em; font-size: 1.5em; line-height: 1.5em;
     font-weight: bolder;
     border-radius: 50em;
-    width: 1.5em;
+    width: 3em;
     border: .25em solid darkgreen;
     background-color: white;
   }

@@ -1,4 +1,5 @@
 <script>
+  import { i18n } from '../stores/i18n.js';
   export let username;
 </script>
 
@@ -34,7 +35,11 @@
 </style>
 
 <header>
-  <h1><img src="android-chrome-192x192.png" alt="logo"/> Cooking Contest!</h1>
+  <div class="left">
+    <i class="fas fa-hamburger"></i> Menu
+  </div>
+
+  <h1><img src="android-chrome-192x192.png" alt="logo"/> {$i18n['title']}</h1>
   {#if username}
   <div class="right">
     <i class="fas fa-user-circle"></i> {username}

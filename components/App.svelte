@@ -6,6 +6,7 @@
   import ContestInfos from './ContestInfos.svelte';
 
   import { username } from '../stores/username.js';
+  import { i18n } from '../stores/i18n.js';
   import { evaluating, evaluations, contest } from '../stores/evaluations.js';
 
 	import { loadContestFromFirebase } from '../backend/firebase/firestore/contests.js';
@@ -32,6 +33,9 @@
   }
 </style>
 
+<svelte:head>
+  <title>{$i18n['title']}</title>
+</svelte:head>
 <main>
   <Header username={$username}></Header>
   {#if !$evaluating}

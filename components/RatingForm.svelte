@@ -1,8 +1,10 @@
 <script>
+  import InputRange from './InputRange.svelte';
+
   import { evaluating, evaluations, contest } from '../stores/evaluations';
+  import { username } from '../stores/username.js';
 
   import { saveEvaluationInFirebase } from '../backend/firebase/firestore/evaluations.js';
-  import { username } from '../stores/username.js';
 
   const DEFAULT_RATING = 3;
   $: currentEvaluationIndex = $evaluations.findIndex(item => item.meal['meal-id'] === $evaluating);
@@ -82,7 +84,8 @@
   <img src={currentEvaluation.meal.photoURL} alt={currentEvaluation.meal.photoAlt}/>
   <br/>
     {#each $contest.criterias as criterion, indexCriterion}
-    <label for="criteria{indexCriterion}">{criterion}</label><input name="criteria{indexCriterion}" type="number" min="1" max="5" bind:value={$evaluations[currentEvaluationIndex].ratings[indexCriterion]} />
+    <label for="criteria{indexCriterion}">{criterion}: {$evaluations[currentEvaluationIndex].ratings[indexCriterion]}</label>
+    <InputRange name="criteria{indexCriterion}" id="criteria{indexCriterion}" min={1} max={5} step={.5} bind:value={$evaluations[currentEvaluationIndex].ratings[indexCriterion]} />
     <br/>
     {/each}
   

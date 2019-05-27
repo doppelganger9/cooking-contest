@@ -3,8 +3,8 @@
   import SmallUser from './SmallUser.svelte';
 
   import { i18n } from '../stores/i18n.js';
+  import { username } from '../stores/username.js';
 
-  export let username;
 </script>
 
 <style>
@@ -50,9 +50,9 @@
   </div>
 
   <h1><img src="android-chrome-192x192.png" alt="logo"/> {$i18n['title']}</h1>
-  {#if username}
+  {#if $username}
   <div class="right">
-    <SmallUser {username}/>
+    <SmallUser/>
   </div>
   {/if}
 </header>

@@ -38,7 +38,7 @@
   <title>{$i18n['title']}</title>
 </svelte:head>
 <main>
-  <Header username={$username}></Header>
+  <Header />
   {#if !$evaluating}
     <ContestInfos {...$contest} showMealDetails={showMealDetails} />
   {/if}

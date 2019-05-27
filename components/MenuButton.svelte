@@ -1,1 +1,1 @@
-<i class="fas fa-hamburger"></i> Menu
+<span><i class="fas fa-hamburger"></i> Menu</span>

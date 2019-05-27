@@ -1,5 +1,5 @@
 <script>
-  export let username;
+  import { username } from '../stores/username.js';
 </script>
 
-<i class="fas fa-user-circle"></i> {username}
+<span><i class="fas fa-user-circle"></i> {$username}</span>

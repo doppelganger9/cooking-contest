@@ -5,11 +5,17 @@ import { i18n, switchLang, lang } from '../stores/i18n.js';
 <style>
 button {
   color: blueviolet;
+  border: none;
+  background: transparent;
+}
+button:hover {
+  font-weight: bolder;
+  background-color: blueviolet;
 }
 </style>
 
 {#if $lang == 'fr'}
-<button on:click={() => switchLang('en')}>🇺🇸</button>
+<button on:click={() => switchLang('en')}>🇫🇷 ➡️ 🇺🇸</button>
 {:else if $lang == 'en'}
-<button on:click={() => switchLang('fr')}>🇫🇷</button>
+<button on:click={() => switchLang('fr')}>🇺🇸 ➡️ 🇫🇷</button>
 {/if}

@@ -19,7 +19,6 @@
 </style>
 
 <footer>
-<p>{@html $i18n['footer']}</p>
+<p>{@html $i18n['footer']} | <Lang /></p>
 {#if $username}<p>{$i18n['hello']} <em>{$username}</em> <Disconnect button={false}/></p>{/if}
-<Lang />
 </footer>

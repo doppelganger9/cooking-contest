@@ -29,7 +29,10 @@
 		} else {
 			error = "error";
 		}
-  }
+	}
+
+	const handleEnter = (event) => event.keyCode == 13 && anonymousLogin();
+
 </script>
 
 <style>
@@ -66,5 +69,8 @@
   type="text"
   placeholder="{error ? `👉ton nom ICI 👈`:``}"
 	bind:value={typedUsername}
+	on:keydown={handleEnter}
 	/>
-<button on:click={anonymousLogin}>commencer !</button>
+<button on:click={anonymousLogin}>
+	<i class="fas fa-sign-in-alt"></i> commencer !
+</button>

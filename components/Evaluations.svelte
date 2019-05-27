@@ -9,7 +9,6 @@ import { evaluations, evaluating } from '../stores/evaluations';
   section {
     border: 1px solid #ff3e00;
     max-width: 80%;
-    min-width: 400px;
     margin: 5vh auto;
     border-radius: .5em;
     padding: 1em;

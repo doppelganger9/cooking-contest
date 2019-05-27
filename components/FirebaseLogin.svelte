@@ -62,7 +62,7 @@
 </style>
 
 <label for="username">Je m'appelle </label>
-<input name="username" class={error}
+<input id="username" name="username" class={error}
   type="text"
   placeholder="{error ? `👉ton nom ICI 👈`:``}"
 	bind:value={typedUsername}

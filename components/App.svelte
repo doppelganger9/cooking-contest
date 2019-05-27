@@ -36,12 +36,10 @@
     box-sizing: border-box;
     margin: 0;
     padding: .5em 0.1em;
-    min-width: 445px;
   }
   section {
     border: 1px solid #ff3e00;
     max-width: 80%;
-    min-width: 400px;
     margin: 5vh auto;
     border-radius: .5em;
     padding: 1em;
@@ -51,13 +49,17 @@
 
 <main>
 	<h1>C<small>🍩🍪</small>king C<small>🎂</small>ntest!</h1>
-  <ContestInfos {...$contest} showMealDetails={showMealDetails} />
+  {#if !$evaluating}
+    <ContestInfos {...$contest} showMealDetails={showMealDetails} />
+  {/if}
   {#await contestPromise}
     <p>attendez un peu, ça charge...⏳</p>
   {:then theContest}
+    {#if !$evaluating}
     <section>
       <Username />
     </section>
+    {/if}
     <Evaluations />
   {:catch err}
     <p>Oups 🤭 nous n'arrivons pas à charger les données</p>

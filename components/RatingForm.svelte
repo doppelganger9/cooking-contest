@@ -65,8 +65,8 @@
     border: .25em solid green;
   }
   img {
-    max-width: 50%;
-    max-height: 50%;
+    max-width: 20em;
+    max-height: 20em;
     padding: 1em;
   }
   section {

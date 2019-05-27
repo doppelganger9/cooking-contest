@@ -1,4 +1,5 @@
 <script>
+  import Header from './Header.svelte';
   import Username from "./Username.svelte";
   import Footer from './Footer.svelte';
   import Evaluations from './Evaluations.svelte';
@@ -29,26 +30,10 @@
     font-family: sans-serif;
     text-align: center;
   }
-  h1 {
-    color: white;
-    font-size: 2em;
-    background-color: #ff3e00;
-    box-sizing: border-box;
-    margin: 0;
-    padding: .5em 0.1em;
-  }
-  section {
-    border: 1px solid #ff3e00;
-    max-width: 80%;
-    margin: 5vh auto;
-    border-radius: .5em;
-    padding: 1em;
-    color: #555;
-  }
 </style>
 
 <main>
-	<h1>C<small>🍩🍪</small>king C<small>🎂</small>ntest!</h1>
+  <Header username={$username}></Header>
   {#if !$evaluating}
     <ContestInfos {...$contest} showMealDetails={showMealDetails} />
   {/if}
@@ -56,9 +41,7 @@
     <p>attendez un peu, ça charge...⏳</p>
   {:then theContest}
     {#if !$evaluating}
-    <section>
-      <Username />
-    </section>
+    <Username />
     {/if}
     <Evaluations />
   {:catch err}

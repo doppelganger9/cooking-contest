@@ -1,6 +1,8 @@
 <script>
   import Disconnect from './Disconnect.svelte';
+  import Lang from './Lang.svelte';
 
+  import { i18n } from '../stores/i18n.js';
   import { username } from '../stores/username.js';
 </script>
 <style>
@@ -17,6 +19,7 @@
 </style>
 
 <footer>
-<p>Made with 🧡 and Svelte by <a href="lacourt.dev">David Lacourt</a></p>
-{#if $username}<p>Bonjour, <em>{$username}</em> <Disconnect button={false}/></p>{/if}
+<p>{@html $i18n['footer']}</p>
+{#if $username}<p>{$i18n['hello']} <em>{$username}</em> <Disconnect button={false}/></p>{/if}
+<Lang />
 </footer>

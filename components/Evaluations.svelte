@@ -3,6 +3,7 @@
   import RatingForm from './RatingForm.svelte';
 
 import { evaluations, evaluating } from '../stores/evaluations';
+import { i18n } from '../stores/i18n.js';
 </script>
 
 <style>
@@ -21,7 +22,7 @@ import { evaluations, evaluating } from '../stores/evaluations';
     <RatingForm id={$evaluating} />
   {:else}
     <section>
-    <h2>{$evaluations.length > 1 ? 'Mes évaluations':'Mon évaluation'}</h2>
+    <h2>{$evaluations.length > 1 ? $i18n['my.evaluations']:$i18n['my.evaluation']}</h2>
     {#each $evaluations as evaluation (evaluation.meal['meal-id'])}
       <EvaluationPreview
         title={evaluation.meal.title}

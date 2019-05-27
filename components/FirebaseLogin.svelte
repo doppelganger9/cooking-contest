@@ -2,7 +2,8 @@
 	import { authState } from 'rxfire/auth';
 	import { auth } from '../backend/firebase/core.js';
 	import { loadFirebaseEvaluations } from '../backend/firebase/firestore/evaluations.js';
-  import { username, user } from "../stores/username";
+	import { username, user } from "../stores/username";
+	import { i18n } from "../stores/i18n";
   import { evaluations, initializeEvaluations, contest } from '../stores/evaluations';
 
 	let typedUsername = "";
@@ -64,13 +65,11 @@
 	}
 </style>
 
-<label for="username">Je m'appelle </label>
+<label for="username">{$i18n['my.name.is']} </label>
 <input id="username" name="username" class={error}
   type="text"
-  placeholder="{error ? `👉ton nom ICI 👈`:``}"
+  placeholder="{error ? $i18n['username.required.placeholder']:''}"
 	bind:value={typedUsername}
 	on:keydown={handleEnter}
 	/>
-<button on:click={anonymousLogin}>
-	<i class="fas fa-sign-in-alt"></i> commencer !
-</button>
+<button on:click={anonymousLogin}><i class="fas fa-sign-in-alt"></i> {$i18n['sign-in']}</button>

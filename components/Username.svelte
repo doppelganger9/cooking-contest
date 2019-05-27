@@ -1,6 +1,7 @@
 <script>
   import FirebaseLogin from "./FirebaseLogin.svelte";
 
+  import { i18n } from '../stores/i18n.js';
   import { username } from "../stores/username";
 </script>
 
@@ -17,7 +18,7 @@
 
 {#if $username == null}
   <section>
-    <h2>Vous n'êtes pas encore inscrit</h2>
+    <h2>{$i18n['not.signedin.yet']}</h2>
     <FirebaseLogin />
   </section>
 {/if}

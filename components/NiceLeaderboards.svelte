@@ -1,4 +1,6 @@
 <script>
+import { i18n } from '../stores/i18n.js';
+
 export let leaders = [];
 export let maxScore = 500;
 
@@ -157,7 +159,7 @@ section {
 
 <section>
   <div class="Leaderboard">
-    <h2>Leaderboard</h2>
+    <h2>{$i18n['leaderboard']}</h2>
     <div class="leaders">
       {#if leaders}
       {#each leaders as leader, i}

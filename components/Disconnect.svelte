@@ -1,5 +1,6 @@
 <script>
 	import { username } from "../stores/username";
+	import { i18n } from "../stores/i18n";
 	import { evaluations, evaluating } from "../stores/evaluations";
 
 	export let button = true; // render as button or link.
@@ -42,7 +43,7 @@
 </style>
 
 {#if button}
-<button on:click={disconnect}><i class="fas fa-sign-out-alt"></i> Me déconnecter 👋</button>
+<button on:click={disconnect}><i class="fas fa-sign-out-alt"></i> {$i18n['sign-out']}</button>
 {:else}
-<a on:click={disconnect}><i class="fas fa-sign-out-alt"></i> Me déconnecter 👋</a>
+<a on:click={disconnect}><i class="fas fa-sign-out-alt"></i> {$i18n['sign-out']}</a>
 {/if}

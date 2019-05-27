@@ -1,5 +1,7 @@
 <script>
   export let title = null, when = null, meals = [], showMealDetails = true;
+  import Leaderboards from './Leaderboards.svelte';
+
 </script>
 
 <style>
@@ -18,5 +20,6 @@
   {#if showMealDetails && meals.length>0}
   <p>Avec {meals.length} plat{meals.length>1?'s':''} à évaluer :</p>
   <p>{meals.map(m => m.title).join(', ')}</p>
+  <Leaderboards {meals} />
   {/if}
 </section>

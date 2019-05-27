@@ -97,3 +97,19 @@ export async function saveEvaluationInFirebase(username, evaluation) {
     }
   });
 }
+
+// TODO : replace with firebase functions trigger to do it serverless-side instead of front-side.
+export async function evaluationForMeal(mealId) {
+  const snapshot = await db.collection('evaluations').where('meal-id', '==', mealId).get();
+  if (snapshot.empty) {
+    // no evaluations for this meal yet
+    return '?';
+  }
+  let sum = 0;
+  const count = snapshot.docs.length;
+  snapshot.forEach(doc => {
+    const data = doc.data();
+    sum += data.rating;
+  });
+  return (sum / count).toFixed(2);
+}

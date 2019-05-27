@@ -3,10 +3,6 @@
   import { evaluationForMeal } from '../backend/firebase/firestore/evaluations.js';
   export let meals;
 
-  // un peu de traitement sur cette page:
-  // 1: ré-ordonner les plats par leur note
-  // 2: afficher un emoji 🥇🥈🥉 pour les 3 premiers
-  // 3: classement par catégorie (selon les critères du concours)
   const orderedMealsPromise = new Promise((resolve, reject) => {
     Promise.all(meals.map(meal => evaluationForMeal(meal['meal-id']) )).then((globalRatings) => {
       const mealsWithGlobalRatings = globalRatings.map((globalRating, i) => ({...meals[i], globalRating}));

@@ -1,6 +1,7 @@
 <style>
 img {
-  width: 40vw;
+  width: 100%;
+  max-width: 40vw;
   vertical-align: center;
   text-align: center;
   margin: 0 auto;

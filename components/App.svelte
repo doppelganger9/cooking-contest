@@ -1,27 +1,17 @@
 <script>
   import Header from './Header.svelte';
-  import Username from "./Username.svelte";
   import Footer from './Footer.svelte';
-  import Evaluations from './Evaluations.svelte';
-  import ContestInfos from './ContestInfos.svelte';
   import Loader from './Loader.svelte';
+  import SideMenu from './SideMenu.svelte';
 
-  import { username } from '../stores/username.js';
+  import MainPage from './MainPage.svelte';
+  import LeaderboardPage from './LeaderboardPage.svelte';
+  import AboutPage from './AboutPage.svelte';
+  import LegalPage from './LegalPage.svelte';
+
   import { i18n } from '../stores/i18n.js';
-  import { evaluating, evaluations, contest } from '../stores/evaluations.js';
-
-	import { loadContestFromFirebase } from '../backend/firebase/firestore/contests.js';
-
-  // load data from Firestore
-  const contestPromise = loadContestFromFirebase();
-  // init store with string "loading" value
-  $contest = 'loading...';
-  // when data is loaded, the store will be updated.
-  contestPromise.then(contestData => {
-    $contest = contestData;
-  });
-
-  $: showMealDetails = $username === null;
+  import { mainLeft, closeMenu } from '../stores/side-menu.js';
+  import { currentRoute } from '../stores/routing.js';
 
 </script>
 
@@ -31,27 +21,34 @@
     margin: 0;
     font-family: sans-serif;
     text-align: center;
+    
+    background: rgba(120,0,100,.3);
+		width: 100vw;
+		height: 100vh;
+		position: absolute;
+		top: 0;
+		left: 0;
   }
 </style>
 
 <svelte:head>
   <title>{$i18n['title']}</title>
 </svelte:head>
-<main>
+<SideMenu />
+<main style="left: {$mainLeft}vw;" on:click={() => closeMenu() }>
   <Header />
-  {#if !$evaluating}
-    <ContestInfos {...$contest} showMealDetails={showMealDetails} />
+
+  {#if $currentRoute == 'main'}
+    <MainPage />
+  {:else if $currentRoute == 'leaderboard'}
+    <LeaderboardPage />
+  {:else if $currentRoute == 'about'}
+    <AboutPage />
+  {:else if $currentRoute == 'legal'}
+    <LegalPage />
+  {:else}
+    <p>"{$currentRoute}": Je ne connais pas cette route !</p>
   {/if}
-  {#await contestPromise}
-    <Loader />
-  {:then theContest}
-    {#if !$evaluating}
-    <Username />
-    {/if}
-    <Evaluations />
-  {:catch err}
-    <p>Oups 🤭 nous n'arrivons pas à charger les données</p>
-    <pre>{err}</pre>
-  {/await}
+
   <Footer />
 </main>

@@ -10,6 +10,7 @@
 <style>
   header {
     background-color: #ff3e00;
+    position: relative;
   }
   div {
     position: absolute;

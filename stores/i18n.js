@@ -28,6 +28,11 @@ const labelsByLang = {
     "my.evaluation": "My evaluation",
     "my.evaluations": "My evaluations",
     "leaderboard": "Leaderboard",
+    "about": "About",
+    "legal": "Legal",
+    "woops.cannot.load.data": "WOops 🤭 we cannot load data",
+    "about.contents": "This website is the result of its author's participation in cooking contest, coupled with the need to try SvelteJS.",
+    "legal.contents": "Lorem.. ipsum?",
   },
   "fr": {
     "title": "Concours de Cuisine !",
@@ -41,6 +46,11 @@ const labelsByLang = {
     "my.evaluation": "Mon évaluation",
     "my.evaluations": "Mes évaluations",
     "leaderboard": "Résultats",
+    "about": "à propos",
+    "legal": "mentions légales",
+    "woops.cannot.load.data": "Oups 🤭 nous n'arrivons pas à charger les données",
+    "about.contents": "Ce site a été créé après que son auteur ait participé à des concours culinaires, couplé à son besoin de tester SvelteJS.",
+    "legal.contents": "Lorem.. ipsum?",
   }
 };
 

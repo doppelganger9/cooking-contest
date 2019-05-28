@@ -75,3 +75,15 @@ See [CONTRIBUTING](CONTRIBUTING.md) file.
 ## License
 
 See [LICENCE](LICENCE) file.
+
+## Development Cost
+
+At the moment, I've spent 22 hours on this webapp, starting from scratch (no prior knowledge).
+I'm very impressed by the learning curve, simplicity of the framework and the resulting code is so lean and clean.
+
+- I started a little playground project on CodeSandbox, then downloaded it and iterated from there, commiting to git.
+- Adding i18n took me half an hour.
+- Adding Routing and an animated side menu took me 2 hours, including reading the docs and using the Svelte REPL to understand how tweening and easing works.
+- Integrating Firebase took me a little more than 8 hours.
+- Playing with CSS, look & feel and design took me a few hours as it is not of my strength, to say the least 🙄.
+- the last 2 hours were used to rebase interactively my local repo a few times to cleanup a bit, removing sensitive API Keys, adding a license, providing a name and description in package.json. You are seeing the end result.

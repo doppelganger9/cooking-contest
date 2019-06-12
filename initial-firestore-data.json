@@ -1,0 +1,68 @@
+{
+    "contests":[
+        {
+            "contest-id": "1",
+            "id": "1",
+            "title": "Crumble Contest",
+            "date": 123414151515,
+            "meals": [
+                "1-1",
+                "1-2",
+                "1-3"
+            ],
+            "criterias": [
+                "Texture",
+                "Originalité",
+                "Healthy",
+                "Goût",
+                "Apparence"
+            ]
+        }
+    ],
+    "meals": [
+        {
+            "id": "1-1",
+            "meal-id": "A",
+            "title": "Crumble aux pommes",
+            "description": "Un magnifique crumble aux pommes",
+            "author": "Bob",
+            "photoURL": "",
+            "photoAlt": "crumble aux pommes",
+            "globalRating": null
+        },
+        {
+            "id": "1-2",
+            "meal-id": "B",
+            "title": "Crumble aux poires",
+            "description": "Un magnifique crumble aux poires",
+            "author": "Léa",
+            "photoURL": "",
+            "photoAlt": "crumble aux poires",
+            "globalRating": null
+        },
+        {
+            "id": "1-3",
+            "meal-id": "C",
+            "title": "Crumble aux prunes",
+            "description": "Un magnifique crumble aux prunes",
+            "author": "Emilie",
+            "photoURL": "",
+            "photoAlt": "crumble aux prunes",
+            "globalRating": null
+        }
+    ],
+    "evaluations": [
+        {
+            "id": "david-1-1",
+            "author": "david",
+            "meal": "1-1",
+            "meal-id": "A",
+            "contest": "1",
+            "contest-id": "1",
+            "ratings": [
+                1,3,4,2,4
+            ],
+            "rating": 2.8
+        }
+    ]
+}

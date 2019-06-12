@@ -54,7 +54,7 @@ When building,
 - we rely on [dotenv](https://github.com/motdotla/dotenv) to read a `.env` file containing all the Firebase's sensitive informations (Api keys, project ID, etc.) and to expose them in `process.env`.
 - this is then assigned to words in the [Rollup-plugin-replace](https://github.com/rollup/rollup-plugin-replace) configuration inside `rollup.config.js`
 - in the end, it replaces the `<@FIREBASE_...@>` in the `firebase.js` file with real string values.
-- you won't see my api keys in this repo 🤷‍♂️
+- you won't see my api keys in this repo 🤷‍♂️ (at least, I hope so...)
 
 ---
 

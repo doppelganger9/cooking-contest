@@ -4,6 +4,7 @@
     "indexes": "firestore.indexes.json"
   },
   "hosting": {
+    "site": "cooking-contest",
     "public": "public",
     "ignore": [
       "firebase.json",

@@ -7,7 +7,15 @@
 
 
 function emptyEvaluations(username, contest) {
-  return contest.meals.map(meal => ({ author: username, 'contest-id': contest['contest-id'], contest, meal, 'meal-id': meal['meal-id'], rating: undefined, ratings: [3, 3, 3, 3, 3] }));
+  return contest.meals.map(meal => ({ 
+    author: username, 
+    'contest-id': contest['contest-id'], 
+    contest, 
+    meal, 
+    'meal-id': meal['meal-id'], 
+    rating: undefined, 
+    ratings: [3, 3, 3, 3, 3] 
+  }));
 }
 
 export async function loadEvaluations(db, username, contest) {

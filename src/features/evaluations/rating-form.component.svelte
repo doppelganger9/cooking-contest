@@ -5,7 +5,8 @@
   import { username } from '../user-session/username.store.js';
 
   import { saveEvaluation } from '../../business/evaluations.js';
-  import { db } from '../../backend/firebase/core.js';
+  //import { db } from '../../backend/firebase/core.js';
+  import { db } from '../../backend/mock/db.js';
 
   const DEFAULT_RATING = 3;
   $: currentEvaluationIndex = $evaluations.findIndex(item => item.meal['meal-id'] === $evaluating);

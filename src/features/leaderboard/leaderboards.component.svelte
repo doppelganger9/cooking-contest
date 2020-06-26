@@ -1,8 +1,9 @@
 <script>
   // TODO: REFACTOR: wrong way to present the architecture: should show what (business) before the technology involved to do it (how = firebase firestore)
   import { evaluationForMeal } from '../../business/evaluations.js';
-  import { db } from '../../backend/firebase/core.js';
-
+  //import { db } from '../../backend/firebase/core.js';
+  import { db } from '../../backend/mock/db.js';
+  
   import NiceLeaderboardsComponent from './nice-leaderboards.component.svelte';
 
   export let meals;

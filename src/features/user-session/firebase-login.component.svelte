@@ -1,39 +1,41 @@
 <script>
-    import { loadEvaluations } from '../../business/evaluations.js';
-    import { authState } from 'rxfire/auth';
-    import { db, auth } from '../../backend/firebase/core.js';
+import { loadEvaluations } from '../../business/evaluations.js';
+import { authState } from 'rxfire/auth';
+//import { db, auth } from '../../backend/firebase/core.js';
+import { db, auth } from '../../backend/mock/db.js';
 
-    import { username, user } from "../user-session/username.store.js";
-    import { i18n } from "../i18n/i18n.store.js";
-    import { evaluations, initializeEvaluations, contest } from '../evaluations/evaluations.store.js';
+import { username, user } from "../user-session/username.store.js";
+import { i18n } from "../i18n/i18n.store.js";
+import { evaluations, initializeEvaluations, contest } from '../evaluations/evaluations.store.js';
 
-    let typedUsername = "";
-    let error = "";
+let typedUsername = "";
+let error = "";
 
-    const unsubscribe = authState(auth).subscribe(u => $user = u);
+// line below = Dead code?? $user is not used anywhere!!
+const unsubscribe = authState(auth).subscribe(u => $user = u);
 
-    function anonymousLogin() {
-        if (typedUsername) {
-			auth.signInAnonymously().catch(error => {
-				// Handle Errors here.
-				let errorCode = error.code;
-				let errorMessage = error.message;
+function anonymousLogin() {
+  if (typedUsername) {
+      auth.signInAnonymously().catch(error => {
+        // Handle Errors here.
+        let errorCode = error.code;
+        let errorMessage = error.message;
         console.error(`Error trying to sign-in anonymously to Firebase: ${errorCode} ${errorMessage}`, error);
       });
-            console.log("connected", typedUsername);
+      console.log("connected", typedUsername);
       $username = typedUsername;
       initializeEvaluations();
       (async () => {
         // TODO: I remember seeing that in svelte Promises should be handled directly...
         $evaluations = await loadEvaluations(db, typedUsername, $contest);
       })();
-            error = "";
-        } else {
-            error = "error";
-        }
+        error = "";
+    } else {
+        error = "error";
     }
+}
 
-    const handleEnter = (event) => event.keyCode == 13 && anonymousLogin();
+const handleEnter = (event) => event.keyCode == 13 && anonymousLogin();
 
 </script>
 

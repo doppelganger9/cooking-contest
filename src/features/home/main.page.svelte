@@ -9,8 +9,9 @@
   import { evaluating, contest } from '../evaluations/evaluations.store.js';
 
   import { getCurrentContest } from '../../business/contests.js';
-  import { db } from '../../backend/firebase/core.js';
-
+  //import { db } from '../../backend/firebase/core.js';
+  import { db } from '../../backend/mock/db.js';
+  
   // load data from Firestore (here we bind business layer with infrastructure layer)
   const contestPromise = getCurrentContest(db);
   // init store with string "loading" value

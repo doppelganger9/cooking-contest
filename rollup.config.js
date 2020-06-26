@@ -14,7 +14,7 @@ dotenv.config();
 const production = !process.env.ROLLUP_WATCH;
 
 export default {
-  input: "index.js",
+  input: "src/index.js",
   output: {
     sourcemap: true,
     format: "iife",
@@ -23,7 +23,7 @@ export default {
   },
   plugins: [
     replace({
-      include: './backend/firebase/firebase-config.js',
+      include: './src/backend/firebase/firebase-config.js',
       delimiters: ['<@', '@>'],
       values: {
         FIREBASE_PROJECT_ID: process.env.FIREBASE_PROJECT_ID,

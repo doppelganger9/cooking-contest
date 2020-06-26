@@ -30,6 +30,9 @@
     "rxjs": "6.4.0",
     "sirv-cli": "^0.3.1"
   },
+  "engines": {
+    "node": "=10"
+  },
   "dependencies": {
     "spectre.css": "0.5.8",
     "svelte": "^3.0.0"

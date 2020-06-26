@@ -6,6 +6,8 @@ This is a [Svelte](https://svelte.dev) app.
 
 It lives at https://github.com/doppelganger9/cooking-contest.
 
+[I talked about it in a blog post](https://lacourt.dev/2019/05/20).
+
 ## Get started
 
 *Note that you will need to have [Node.js](https://nodejs.org) installed.*

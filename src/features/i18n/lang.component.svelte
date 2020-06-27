@@ -15,7 +15,7 @@ button:hover {
 </style>
 
 {#if $lang == 'fr'}
-<button on:click={() => switchLang('en')}>🇫🇷 ➡️ 🇺🇸</button>
+<button data-e2e="btn-i18n" data-lang="fr" on:click={() => switchLang('en')}>🇫🇷 ➡️ 🇺🇸</button>
 {:else if $lang == 'en'}
-<button on:click={() => switchLang('fr')}>🇺🇸 ➡️ 🇫🇷</button>
+<button data-e2e="btn-i18n" data-lang="en" on:click={() => switchLang('fr')}>🇺🇸 ➡️ 🇫🇷</button>
 {/if}

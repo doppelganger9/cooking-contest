@@ -47,10 +47,18 @@
   <script>
     // Check that service workers are registered
     if ('serviceWorker' in navigator) {
-      // Use the window load event to keep the page load performant
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/service-worker.js');
-      });
+      if (window.Cypress) {
+        // see https://github.com/cypress-io/cypress/issues/702
+        console.log('Disabling SW for E2E');
+        window.addEventListener('load', () => {
+          navigator.serviceWorker && navigator.serviceWorker.unregister && navigator.serviceWorker.unregister();
+        });         
+      } else {
+        // Use the window load event to keep the page load performant
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js');
+        });
+      }
     }
   </script>
 </head>

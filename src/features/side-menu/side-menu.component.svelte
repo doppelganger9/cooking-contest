@@ -48,8 +48,8 @@
   }
 </style>
 
-<section style="left: {$menuLeft}vw;">
-  <h2 on:click={t => closeMenu(t)}><i class="fas fa-hamburger"></i> Menu</h2>
+<section data-e2e="side-menu" style="left: {$menuLeft}vw;">
+  <h2 data-e2e="btn-burger-menu-opened" on:click={t => closeMenu(t)}><i class="fas fa-hamburger"></i> Menu</h2>
   <ul>
     <li on:click={() => routeTo('main')}>{$i18n['my.evaluations']}</li>
     <li on:click={() => routeTo('leaderboard')}>{$i18n['leaderboard']}</li>

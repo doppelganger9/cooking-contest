@@ -195,8 +195,9 @@ typings/
 
 #### For Svelte:
 
-public/bundle.css
-public/bundle.css.map
-public/bundle.js
-public/bundle.js.map
+public/bundle.*
+public/build/bundle.*
 
+### Cypress
+
+cypress/videos
